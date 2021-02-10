@@ -1,11 +1,12 @@
 <template>
   <div class="container">
-    <h1>{{ msg }}</h1>
     <h2>Bulding Market Intelligence.</h2>
 
     <ul v-if="companyList && companyList.length">
       <li v-for="company in companyList">
-        <router-link :to="{ name: 'Company', params: { companyId: company.id } }">
+        <router-link
+          :to="{ name: 'Company', params: { companyId: company.id } }"
+        >
           <strong>{{ company.name }}</strong>
         </router-link>
       </li>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import { getCompanyAll } from "@/service/api"
+import { getCompanyAll } from "@/service/api";
 
 export default {
   name: "Home",
@@ -27,6 +28,11 @@ export default {
     let result = await getCompanyAll();
     console.log(result.data);
     this.companyList = result.data.data;
+  },
+  methods: {
+    dynamicPropFn: function() {
+      return { companyProp: this.company };
+    }
   }
 };
 </script>

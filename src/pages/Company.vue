@@ -13,13 +13,17 @@ import { getCompanyById } from "@/service/api";
 
 export default {
   name: "Home",
+  props: ['companyId'],
   data() {
     return {
-      company: {}
+      company: {"text_sections": {
+          "text" : "No Data."
+      }}
     };
   },
   created: async function() {
-    let result = await getCompanyById("JUBLFOOD");
+    console.log(this.$route.params.companyId)
+    let result = await getCompanyById(this.$route.params.companyId);
     this.company = result.data.data;
   }
 };
