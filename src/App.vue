@@ -3,11 +3,7 @@
     <navbar />
     <section class="section">
       <div class="container">
-        <router-link to="/">Home</router-link>
-        <router-link to="/company">Acme Inc</router-link>
-
         <router-view />
-        
       </div>
     </section>
     <footer-view />
