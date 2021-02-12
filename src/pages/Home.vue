@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h2>Bulding Market Intelligence.</h2>
 
     <ul v-if="companyList && companyList.length">
       <li v-for="company in companyList">

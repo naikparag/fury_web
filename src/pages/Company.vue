@@ -13,18 +13,28 @@ import { getCompanyById } from "@/service/api";
 
 export default {
   name: "Home",
-  props: ['companyId'],
+  props: ["companyId"],
   data() {
     return {
-      company: {"text_sections": {
-          "text" : "No Data."
-      }}
+      company: {
+        text_sections: {
+          text: "No Data."
+        }
+      }
     };
   },
   created: async function() {
-    console.log(this.$route.params.companyId)
-    let result = await getCompanyById(this.$route.params.companyId);
-    this.company = result.data.data;
-  }
+    try {
+      let result = await getCompanyById(this.$route.params.companyId);
+      this.company = result.data.data;
+    } catch (e) {
+      this.show_toast(e);
+    }
+  },
+//   methods: {
+//       show_toast: function(msg) {
+//           this.$buefy.toast.open(msg.message)
+//       }
+//   }
 };
 </script>

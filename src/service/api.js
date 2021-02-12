@@ -1,7 +1,7 @@
 'use strict'
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8820/"
+const BASE_URL = "https://api-fury.bombaybrew.in/"
 const URL_COMPANY = BASE_URL + "company"
 
 const api = axios.create({

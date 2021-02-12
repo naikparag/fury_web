@@ -10,10 +10,22 @@ import router from './router'
 Vue.config.productionTip = false
 Vue.use(Buefy)
 
+let myMixin = {
+  methods: {
+    show_toast: function (msg) {
+      this.$buefy.toast.open('things went crazy. try again later.')
+    }
+  }
+}
+
+Vue.mixin(myMixin)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
