@@ -28,7 +28,7 @@ export default {
       let result = await getCompanyById(this.$route.params.companyId);
       this.company = result.data.data;
     } catch (e) {
-      this.show_toast(e);
+      this.error(e);
     }
   },
 //   methods: {

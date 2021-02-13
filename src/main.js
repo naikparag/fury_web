@@ -14,6 +14,15 @@ let myMixin = {
   methods: {
     show_toast: function (msg) {
       this.$buefy.toast.open('things went crazy. try again later.')
+    },
+    error: function() {
+        const notif = this.$buefy.notification.open({
+            duration: 5000,
+            message: `Something went wrong. <b>Please try again later.</b>`,
+            position: 'is-bottom-right',
+            type: 'is-danger',
+            hasIcon: true
+        })
     }
   }
 }
